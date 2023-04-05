@@ -1,7 +1,7 @@
 # VLSI CAD
 Electronic Design Automation (EDA) industry is ripe with softwares suited to automate development of VLSI designs (VLSI CAD) - which are the heartbeat of modern electronic devices. 
 
-Logic of a design, a boolean function of various input variables, can represent simple functions such as 2-bit adders, or complex ones that involve designing for optimizing specific workloads such as ML training. Such a design is represented as an acyclic graph of gates, so that it can be further mapped to various device architectures, the gates be placed on a device, and connected to each other using physical wires, all the while keeping in check the timing constraints (how fast the design is expected to run) and congestion constraints (overloading of gates at a particular physical location).
+The logic of a design, a boolean function of various input variables, can represent simple functions such as 2-bit adders, or complex ones that involve designing for optimizing specific workloads such as ML training. Such a design is represented as an acyclic graph of gates, so that it can be further mapped to various device architectures, the gates be placed on a device, and connected to each other using physical wires, all the while keeping in check the timing constraints (how fast the design is expected to run) and congestion constraints (overloading of gates at a particular physical location).
 
 Conversion of design logic to layout is called design flow, and it has four main steps:
   - Synthesis
