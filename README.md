@@ -9,7 +9,7 @@ Conversion of design logic to layout is called design flow, and it has four main
   - Placement
   - Routing
 
-I focus on placement and routing in this project, each of which are NP-hard optimzation problems. Most of the solutions to these problems are heuristics-based. Although Google achieved a recent breakthrough on using reinforcement learning trained on edge-based graph neural networks to automate floorplanning (https://www.nature.com/articles/s41586-021-03544-w), not all industries that develop processors have been able to achieve this feat. They still rely on engineers to come up with heuristic algorithms (that may use ML/AI for smaller subproblems) that can solve placement and routing. 
+I focus on placement in this project, which is an NP-hard optimzation problem. Most of the solutions to this problem are heuristics-based. Although Google achieved a recent breakthrough on using [reinforcement learning trained on edge-based graph neural networks to automate floorplanning](https://www.nature.com/articles/s41586-021-03544-w), not all industries that develop processors have been able to achieve this feat. They still rely on engineers to come up with heuristic algorithms (that may use ML/AI for smaller subproblems) that can solve placement and routing. 
 
 ## Placement
 ### Wirelength Estimation
@@ -19,8 +19,8 @@ The purpose of this wirelength estimation is to provide an optimal placement for
 #### Solution
 In general, the closer the gates are placed, the lower the wirelength. But the gates are also required to be connected to input/output ports on the edges of the device, that constraints certain gates to be closer to the edges as well. Moreover, since the physical space required by a gate isn't void, overcrowding of gates at a physical location needs to be avoided. Industry processors deploy thousands to millions of gates depending on the design, that need to be optimized for placement. The algorithm for the same also needs to be fast and efficient in order to have a low compile runtime and memory.
 
-Quadratic Placement is a technique that aids the same. It Assumes size zero for each of the gates, and minimizes the total quadratic distance, calculated by summing the gate distances pair-wise. By setting the partial differentials of the total quadratic distance to zero, we get the same no. of equations as the no. of gates, thereby giving us an analytical solution for the positions of the gates.
+Quadratic Placement is a technique that aids the same. It sssumes size zero for each of the gates, and minimizes the total quadratic distance, calculated by summing the gate distances pair-wise. By setting the partial differentials of the total quadratic distance to zero, we get the same no. of equations as the no. of gates, thereby giving us an analytical solution for the positions of the gates.
 
-This technique is often coupled with recursive partitioning, that recursively divides the device into halfs and reassigns the gates proportionally to the two halfs. This helps reduce overcrowding of gates, that is a consequence of size zero for gates by the quadratic placement algorithm.
+This technique is often coupled with recursive partitioning, that recursively divides the device into halfs and reassigns the gates proportionally to the two halfs. This helps reduce overcrowding of gates, that is a consequence of size zero for gates by the quadratic placement algorithm. **Reference**: [PROUD: a sea-of-gates placement algorithm](https://doi.org/10.1109/54.9271)
 
-Although recursive partitioning helps, it doesn't completely avoid gate overlaps. Legalization is a process that reassigns gates by spreading them to nearby locations to completely remove gate overlaps.
+Although recursive partitioning helps, it doesn't completely avoid gate overlaps. Legalization is the final process in placement that reassigns gates by spreading them to nearby locations to completely remove gate overlaps.
