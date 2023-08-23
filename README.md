@@ -19,8 +19,10 @@ Placement needs to be optimized for wirelength amongst other constraints. Lower 
 #### Solution
 In general, the closer the gates are placed, the lower the wirelength. But the gates are also required to be connected to input/output ports on the edges of the device, that constraints certain gates to be closer to the edges as well. Moreover, since the physical space required by a gate isn't void, overcrowding of gates at a physical location needs to be avoided. Industry processors deploy thousands to millions of gates depending on the design, that need to be optimized for placement. The algorithm for the same also needs to be fast and efficient in order to have a low compile runtime and memory.
 
-Quadratic Placement is a technique that aids the same. It sssumes size zero for each of the gates, and minimizes the total quadratic distance, calculated by summing the gate distances pair-wise. By setting the partial differentials of the total quadratic distance to zero, we get the same no. of equations as the no. of gates, thereby giving us an analytical solution for the positions of the gates.
+Quadratic Placement is a technique that aids the same. It reduces gates to points and minimizes the **total quadratic distance**, calculated by summing the gate distances pair-wise. By setting the partial differentials of the total quadratic distance to zero, we get the same no. of equations as the no. of gates, thereby giving us an analytical solution for the positions of the gates.
 
 This technique is often coupled with recursive partitioning, that recursively divides the device into halfs and reassigns the gates proportionally to the two halfs. This helps reduce overcrowding of gates, that is a consequence of size zero for gates by the quadratic placement algorithm. **Reference**: [PROUD: a sea-of-gates placement algorithm](https://doi.org/10.1109/54.9271)
 
 Although recursive partitioning helps, it doesn't completely avoid gate overlaps. Legalization is the final process in placement that reassigns gates by spreading them to nearby locations to completely remove gate overlaps.
+
+The qp_partitioner.py file implements quadratic placement with recursive partitioning. 
