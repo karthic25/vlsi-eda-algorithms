@@ -14,7 +14,7 @@ I focus on placement in this project, which is an NP-hard optimzation problem. M
 ## Placement
 ### Wirelength Estimation
 #### Problem statement
-The purpose of this wirelength estimation is to provide an optimal placement for a design (an acyclic graph of interconnected nodes, each of which needs to be placed in a rectangular device, under certain constraints), by estimating and minimizing total wirelength of a design. With varying placements of the design gates, the total wirelength will vary. By minimizing the wirelength, we also expect to minimize the delay caused due to large wirelengths.
+Placement needs to be optimized for wirelength amongst other constraints. Lower wirelength also leads to lower delay. 
 
 #### Solution
 In general, the closer the gates are placed, the lower the wirelength. But the gates are also required to be connected to input/output ports on the edges of the device, that constraints certain gates to be closer to the edges as well. Moreover, since the physical space required by a gate isn't void, overcrowding of gates at a physical location needs to be avoided. Industry processors deploy thousands to millions of gates depending on the design, that need to be optimized for placement. The algorithm for the same also needs to be fast and efficient in order to have a low compile runtime and memory.
