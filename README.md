@@ -25,4 +25,4 @@ This technique is often coupled with recursive partitioning, that recursively di
 
 Although recursive partitioning helps, it doesn't completely avoid gate overlaps. Legalization is the final process in placement that reassigns gates by spreading them to nearby locations to completely remove gate overlaps.
 
-The qp_partitioner.py file implements quadratic placement with recursive partitioning. 
+qp_partitioner.py implements quadratic placement with recursive partitioning. 
