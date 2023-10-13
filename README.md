@@ -9,7 +9,7 @@ Conversion of design logic to layout is called design flow, and it has four main
   - Placement
   - Routing
 
-I focus on placement in this project, which is an NP-hard optimzation problem. Most of the solutions to this problem are heuristics-based. Although Google achieved a recent breakthrough on using [reinforcement learning trained on edge-based graph neural networks to automate floorplanning](https://www.nature.com/articles/s41586-021-03544-w), not all industries that develop processors have been able to achieve this feat. They still rely on engineers to come up with heuristic algorithms (that may use ML/AI for smaller subproblems) that can solve placement and routing. 
+I focus on placement in this project, which is an NP-hard optimzation problem. Most of the solutions to this problem are heuristics-based. The industry relies primarily on heuristic algorithms (that may use ML/AI for smaller subproblems) that can solve placement and routing. 
 
 ## Placement
 ### Wirelength Estimation
